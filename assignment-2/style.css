@@ -1,0 +1,548 @@
+/* Allbirds landing-page look. Bootstrap handles grid, navbar, forms, buttons. */
+:root {
+  --ab-bg: #ece8e1;
+  --ab-ink: #212121;
+  --ab-muted: #6b6760;
+  --ab-card: #ffffff;
+  --ab-pill: #e3dccf;
+  --ab-radius: 1.25rem;
+  --font-body: "Kumbh Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", ui-monospace, monospace;
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-script: "Caveat", cursive;
+}
+
+body {
+  background: var(--ab-bg);
+  color: var(--ab-ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+a {
+  color: inherit;
+}
+:focus-visible {
+  outline: 2px solid var(--ab-ink);
+  outline-offset: 2px;
+}
+.mono {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+}
+.page-pad {
+  padding-left: 0.6rem;
+  padding-right: 0.6rem;
+}
+
+/* Announcement bar */
+.announce {
+  background: var(--ab-ink);
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.announce .inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.55rem 0.8rem;
+}
+.announce .msg {
+  flex: 1;
+  text-align: center;
+}
+.announce .arrow {
+  opacity: 0.9;
+}
+
+/* Floating pill header */
+.site-header {
+  position: sticky;
+  top: 0.6rem;
+  z-index: 50;
+  padding: 0.6rem 0.6rem 0;
+}
+.header-pill {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas: "brand icons" "nav nav";
+  align-items: center;
+  padding: 0.4rem 1.2rem 0.35rem;
+}
+.brand {
+  grid-area: brand;
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 2rem;
+  line-height: 1;
+  text-decoration: none;
+  margin: 0;
+}
+.main-nav {
+  grid-area: nav;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.1rem 1.1rem;
+}
+.main-nav .nav-link {
+  color: var(--ab-ink);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.4rem 0;
+}
+.main-nav .nav-link:hover,
+.main-nav .nav-link.active {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.header-icons {
+  grid-area: icons;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  align-items: center;
+}
+.icon-link {
+  position: relative;
+  line-height: 1;
+  color: var(--ab-ink);
+}
+.cart-count {
+  position: absolute;
+  top: -7px;
+  right: -9px;
+  background: var(--ab-ink);
+  color: #fff;
+  font-size: 0.6rem;
+  min-width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+}
+
+/* Pill buttons */
+.btn-pill {
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.7rem 1.6rem;
+}
+.btn-white {
+  background: #fff;
+  color: var(--ab-ink);
+  border: 1px solid #fff;
+}
+.btn-white:hover {
+  background: var(--ab-ink);
+  color: #fff;
+  border-color: var(--ab-ink);
+}
+.btn-dark-pill {
+  background: var(--ab-ink);
+  color: #fff;
+  border: 1px solid var(--ab-ink);
+}
+.btn-dark-pill:hover {
+  background: #000;
+  color: #fff;
+}
+.btn-line {
+  background: transparent;
+  color: var(--ab-ink);
+  border: 1px solid var(--ab-ink);
+}
+.btn-line:hover {
+  background: var(--ab-ink);
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  color: #fff;
+  min-height: 440px;
+  display: flex;
+  align-items: flex-end;
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.05) 60%),
+    url("https://picsum.photos/seed/allbirds-hero/1800/900") center / cover,
+    #6d7566;
+}
+.hero-copy {
+  padding: 1.6rem;
+}
+.hero-copy h1 {
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4.4vw, 3rem);
+  line-height: 1.1;
+  margin: 0.6rem 0 1.2rem;
+  max-width: 16ch;
+}
+.hero-copy .mono {
+  color: #fff;
+}
+
+/* Category tiles */
+.tile {
+  position: relative;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+}
+.tile img.shoe {
+  width: 88%;
+  height: auto;
+}
+.tile .tile-label {
+  position: absolute;
+  border: 1px solid #fff;
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.45rem 1.1rem;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tile-arch {
+  border-radius: 999px / 50%;
+}
+@media (min-width: 992px) {
+  .tile {
+    aspect-ratio: 7 / 9;
+  }
+  .tile-arch {
+    border-radius: 50%;
+  }
+}
+
+/* Section heading */
+.section-title {
+  display: inline-block;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 1.05rem;
+  font-weight: 400;
+  border-bottom: 2px solid var(--ab-ink);
+  padding-bottom: 2px;
+  margin: 0;
+}
+
+/* Product cards */
+.product-card {
+  background: var(--ab-card);
+  border-radius: var(--ab-radius);
+  padding: 1.1rem 1.4rem 1.4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.pill-new {
+  align-self: flex-start;
+  background: var(--ab-pill);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+}
+.pill-new.spacer {
+  visibility: hidden;
+}
+.product-card .art {
+  display: block;
+  padding: 1.5rem 0 1rem;
+}
+.product-card img.shoe {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.product-name {
+  font-size: 0.92rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0.4rem 0 0;
+}
+.product-name a {
+  text-decoration: none;
+}
+.product-name a:hover {
+  text-decoration: underline;
+}
+.product-color {
+  margin: 0;
+  color: var(--ab-ink);
+}
+.price {
+  margin: 0.2rem 0 1rem;
+  font-weight: 600;
+}
+.product-card .btn {
+  margin-top: auto;
+}
+
+/* Photo tiles */
+.photo-tile {
+  position: relative;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  background-size: cover;
+  background-position: center;
+}
+.photo-tile::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+}
+.photo-tile span {
+  position: relative;
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  line-height: 1.15;
+  padding: 0 1.5rem;
+  max-width: 12ch;
+}
+
+/* Footer (dark) */
+.site-footer {
+  background: var(--ab-ink);
+  color: #fff;
+  margin-top: 4rem;
+  padding: 3.5rem 0 2rem;
+}
+.site-footer h2 {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 1.4rem;
+}
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.site-footer li {
+  margin-bottom: 0.8rem;
+}
+.site-footer a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+.site-footer a:hover {
+  text-decoration: underline;
+}
+.email-pill {
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.3rem 0.4rem 0.3rem 1.1rem;
+  display: flex;
+  align-items: center;
+  max-width: 24rem;
+}
+.email-pill input {
+  border: 0;
+  background: transparent;
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0;
+  font-size: 1rem;
+}
+.email-pill input:focus {
+  outline: none;
+}
+.email-pill button {
+  border: 0;
+  background: transparent;
+  font-weight: 800;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  padding: 0.6rem 1rem;
+}
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+.social a {
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Product detail page */
+.breadcrumb {
+  font-size: 0.82rem;
+  --bs-breadcrumb-divider-color: var(--ab-muted);
+}
+.breadcrumb a {
+  text-decoration: none;
+  color: var(--ab-muted);
+}
+.gallery .g-tile {
+  background: #fff;
+  border-radius: var(--ab-radius);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  aspect-ratio: 1 / 1;
+}
+.gallery .g-tile.wide {
+  aspect-ratio: 4 / 3;
+}
+.gallery img.shoe {
+  width: 100%;
+  height: auto;
+}
+.info-card {
+  background: #fff;
+  border-radius: var(--ab-radius);
+  padding: 1.6rem;
+}
+.pdp-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-size: clamp(1.3rem, 2.6vw, 1.7rem);
+}
+.stars {
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+}
+.swatch + label {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  border: 1px solid #d6d0c6;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 3px #fff;
+}
+.swatch:checked + label {
+  outline: 2px solid var(--ab-ink);
+  outline-offset: 1px;
+}
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+@media (min-width: 576px) {
+  .size-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+.size-grid .btn {
+  border-radius: 999px;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+}
+.qty-input {
+  max-width: 6rem;
+  text-align: center;
+  border-radius: 999px;
+}
+.pdp-details details {
+  border-top: 1px solid #e3ded4;
+  padding: 0.9rem 0;
+}
+.pdp-details details:last-child {
+  border-bottom: 1px solid #e3ded4;
+}
+.pdp-details summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+.pdp-details p {
+  color: var(--ab-muted);
+  margin: 0.6rem 0 0;
+}
+@media (min-width: 992px) {
+  .pdp-sticky {
+    position: sticky;
+    top: 6.5rem;
+  }
+}
+
+/* Tablet and up: logo | centred nav | icons on one row */
+@media (min-width: 768px) {
+  .header-pill {
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-areas: "brand nav icons";
+    padding: 0.55rem 1.4rem;
+  }
+  .main-nav {
+    flex-wrap: nowrap;
+    gap: 2rem;
+  }
+  .main-nav .nav-link {
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  .hero {
+    min-height: 520px;
+  }
+  .hero-copy {
+    padding: 2.5rem;
+    margin-left: auto;
+    text-align: left;
+  }
+  .page-pad {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+}
+@media (min-width: 1200px) {
+  .hero {
+    min-height: 600px;
+  }
+  .hero-copy {
+    padding-right: 4rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Shoe picture: if your photo has a white background instead of a transparent one,
+   uncomment the next line so the white blends into the colored tiles. */
+img.shoe {
+  object-fit: contain;
+}
+/* img.shoe { mix-blend-mode: multiply; } */

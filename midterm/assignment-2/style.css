@@ -685,3 +685,121 @@ img.shoe {
     text-decoration: underline;
   }
 }
+
+/* Task 2: Checkout form */
+
+.checkout {
+  background: #fff;
+  border-radius: var(--ab-radius);
+  padding: 1.4rem;
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.fieldsets {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.checkout fieldset {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.35rem 1rem;
+  border: 1px solid #e3ded4;
+  border-radius: var(--ab-radius);
+  padding: 1rem 1.2rem 1.2rem;
+  margin: 0;
+  min-width: 0;
+}
+
+.checkout legend {
+  grid-column: 1 / -1;
+  font: 500 0.8rem var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  float: none;
+  width: auto;
+  padding: 0 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.checkout label {
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-top: 0.5rem;
+}
+
+.checkout input,
+.checkout select {
+  width: 100%;
+  min-width: 0;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid #cfc8bb;
+  border-radius: 0.6rem;
+  font: inherit;
+  background: #fff;
+}
+
+.checkout input:focus,
+.checkout select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* Hide errors until the user interacts with an invalid field */
+.checkout .msg {
+  display: none;
+  color: #c0202a;
+  font-size: 0.8rem;
+  margin-bottom: 0.35rem;
+}
+
+.checkout input:user-invalid,
+.checkout select:user-invalid {
+  border: 1px solid #c0202a;
+}
+
+.checkout input:user-invalid + .msg,
+.checkout select:user-invalid + .msg {
+  display: block;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 0.9rem;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ab-ink);
+}
+
+.btn-submit:hover {
+  background: var(--ab-ink);
+  color: #fff;
+}
+
+/* BP = 671px: two fieldsets side by side */
+@media (min-width: 671px) {
+  .fieldsets {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .checkout fieldset {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .checkout legend {
+    grid-column: 1 / -1;
+  }
+
+  .checkout label {
+    margin-top: 0;
+  }
+
+  .checkout .msg {
+    grid-column: 2;
+  }
+}
+```

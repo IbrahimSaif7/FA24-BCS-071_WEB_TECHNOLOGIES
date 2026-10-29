@@ -30,6 +30,27 @@
       <nav class="navbar navbar-expand p-0 d-block" aria-label="Main">
         <div class="header-pill">
           <a class="brand navbar-brand" href="index.html">allbirds</a>
+
+          <input
+            type="checkbox"
+            id="nav-toggle"
+            class="nav-toggle"
+            aria-label="Toggle menu"
+          />
+          <label for="nav-toggle" class="nav-burger" aria-hidden="true">
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            >
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </label>
+
           <ul class="main-nav navbar-nav flex-row">
             <li class="nav-item">
               <a class="nav-link" href="index.html">New Arrivals</a>
@@ -43,40 +64,145 @@
             <li class="nav-item">
               <a class="nav-link" href="index.html">Women</a>
             </li>
+
+            <li class="nav-item has-mega">
+              <a class="nav-link" href="index.html#best-sellers"
+                >Shop by Category</a
+              >
+
+              <!-- Desktop panel (BP and wider) -->
+              <div class="mega-panel">
+                <section class="mega-col">
+                  <h3>Men's Shoes</h3>
+                  <ul>
+                    <li>
+                      <a href="index.html#best-sellers">Tree Runner NZ</a>
+                    </li>
+                    <li>
+                      <a href="index.html#best-sellers">Wool Runner NZ</a>
+                    </li>
+                    <li><a href="index.html#best-sellers">Dasher NZ</a></li>
+                    <li>
+                      <a href="index.html#best-sellers">Canvas Cruiser</a>
+                    </li>
+                  </ul>
+                </section>
+                <section class="mega-col">
+                  <h3>Women's Shoes</h3>
+                  <ul>
+                    <li>
+                      <a href="index.html#best-sellers">Cruiser Slip On</a>
+                    </li>
+                    <li>
+                      <a href="index.html#best-sellers">Runner NZ Slip On</a>
+                    </li>
+                    <li>
+                      <a href="index.html#best-sellers"
+                        >Canvas Cruiser Slip On</a
+                      >
+                    </li>
+                    <li>
+                      <a href="index.html#best-sellers">Wool Runner NZ</a>
+                    </li>
+                  </ul>
+                </section>
+                <section class="mega-col">
+                  <h3>Apparel</h3>
+                  <ul>
+                    <li><a href="index.html">Tees</a></li>
+                    <li><a href="index.html">Hoodies</a></li>
+                    <li><a href="index.html">Joggers</a></li>
+                    <li><a href="index.html">Jackets</a></li>
+                  </ul>
+                </section>
+                <section class="mega-col">
+                  <h3>Accessories</h3>
+                  <ul>
+                    <li><a href="index.html">Socks</a></li>
+                    <li><a href="index.html">Insoles</a></li>
+                    <li><a href="index.html">Laces</a></li>
+                    <li><a href="index.html">Bags</a></li>
+                  </ul>
+                </section>
+                <section class="mega-col">
+                  <h3>Collections</h3>
+                  <ul>
+                    <li><a href="index.html#best-sellers">New Arrivals</a></li>
+                    <li><a href="index.html#best-sellers">Best Sellers</a></li>
+                    <li><a href="index.html">Summer Essentials</a></li>
+                    <li><a href="index.html">Sale</a></li>
+                  </ul>
+                </section>
+              </div>
+
+              <!-- Mobile accordion (below BP): same 5 groups, closed by default -->
+              <div class="mega-acc">
+                <details>
+                  <summary>Men's Shoes</summary>
+                  <ul>
+                    <li>
+                      <a href="index.html#best-sellers">Tree Runner NZ</a>
+                    </li>
+                    <li>
+                      <a href="index.html#best-sellers">Wool Runner NZ</a>
+                    </li>
+                    <li><a href="index.html#best-sellers">Dasher NZ</a></li>
+                    <li>
+                      <a href="index.html#best-sellers">Canvas Cruiser</a>
+                    </li>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Women's Shoes</summary>
+                  <ul>
+                    <li>
+                      <a href="index.html#best-sellers">Cruiser Slip On</a>
+                    </li>
+                    <li>
+                      <a href="index.html#best-sellers">Runner NZ Slip On</a>
+                    </li>
+                    <li>
+                      <a href="index.html#best-sellers"
+                        >Canvas Cruiser Slip On</a
+                      >
+                    </li>
+                    <li>
+                      <a href="index.html#best-sellers">Wool Runner NZ</a>
+                    </li>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Apparel</summary>
+                  <ul>
+                    <li><a href="index.html">Tees</a></li>
+                    <li><a href="index.html">Hoodies</a></li>
+                    <li><a href="index.html">Joggers</a></li>
+                    <li><a href="index.html">Jackets</a></li>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Accessories</summary>
+                  <ul>
+                    <li><a href="index.html">Socks</a></li>
+                    <li><a href="index.html">Insoles</a></li>
+                    <li><a href="index.html">Laces</a></li>
+                    <li><a href="index.html">Bags</a></li>
+                  </ul>
+                </details>
+                <details>
+                  <summary>Collections</summary>
+                  <ul>
+                    <li><a href="index.html#best-sellers">New Arrivals</a></li>
+                    <li><a href="index.html#best-sellers">Best Sellers</a></li>
+                    <li><a href="index.html">Summer Essentials</a></li>
+                    <li><a href="index.html">Sale</a></li>
+                  </ul>
+                </details>
+              </div>
+            </li>
           </ul>
 
-          <div class="header-icons">
-            <a class="icon-link" href="#" aria-label="Search"
-              ><svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                aria-hidden="true"
-              >
-                <circle cx="11" cy="11" r="6.5" />
-                <path d="M16 16l4.5 4.5" /></svg
-            ></a>
-            <a class="icon-link" href="#" aria-label="Cart, 0 items"
-              ><svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.8"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path d="M5 8h14l-1 12H6L5 8z" />
-                <path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg
-              ><span class="cart-count">0</span></a
-            >
-          </div>
+          <div class="header-icons"></div>
         </div>
       </nav>
     </header>

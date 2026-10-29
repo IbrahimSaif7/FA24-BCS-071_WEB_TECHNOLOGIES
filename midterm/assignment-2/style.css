@@ -409,7 +409,6 @@ a {
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* Product detail page */
 .breadcrumb {
   font-size: 0.82rem;
   --bs-breadcrumb-divider-color: var(--ab-muted);
@@ -502,7 +501,6 @@ a {
   }
 }
 
-/* Tablet and up: logo | centred nav | icons on one row */
 @media (min-width: 768px) {
   .header-pill {
     grid-template-columns: 1fr auto 1fr;
@@ -540,9 +538,150 @@ a {
   }
 }
 
-/* Shoe picture: if your photo has a white background instead of a transparent one,
-   uncomment the next line so the white blends into the colored tiles. */
 img.shoe {
   object-fit: contain;
 }
-/* img.shoe { mix-blend-mode: multiply; } */
+
+/* =====================================================
+   MIDTERM TASK 1: Mega-menu
+   N = 71 | BP = 671px | H = 137 | K = 5
+   ===================================================== */
+
+:root {
+  --accent: hsl(137, 70%, 45%);
+}
+
+/* Header sits above product cards, hover effects and everything else */
+.site-header {
+  z-index: 1000;
+}
+
+.nav-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.nav-burger {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+.nav-toggle:focus-visible + .nav-burger {
+  outline: 2px solid var(--ab-ink);
+  outline-offset: 2px;
+}
+
+/*  mobile defaults */
+.mega-panel {
+  display: none;
+}
+.mega-acc details {
+  border-top: 1px solid #e3ded4;
+}
+.mega-acc summary {
+  padding: 0.6rem 0;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.mega-acc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0.6rem 0.8rem;
+}
+.mega-acc a {
+  display: block;
+  padding: 0.25rem 0;
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+.mega-acc summary:hover,
+.mega-acc a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 670.98px) {
+  .header-pill {
+    grid-template-columns: 1fr auto auto;
+    grid-template-areas:
+      "brand icons burger"
+      "nav   nav   nav";
+    column-gap: 1rem;
+  }
+  .nav-burger {
+    grid-area: burger;
+  }
+  .main-nav {
+    display: none;
+  }
+  .nav-toggle:checked ~ .main-nav {
+    display: flex;
+    flex-direction: column !important; /* beats Bootstrap's .flex-row !important */
+    align-items: stretch;
+    padding-top: 0.5rem;
+  }
+}
+
+/* ---------- BP (671px) and wider: mega panel ---------- */
+@media (min-width: 671px) {
+  .nav-burger,
+  .mega-acc {
+    display: none;
+  }
+
+  .mega-panel {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    margin-top: 0.4rem;
+    z-index: 1100;
+    background: #fff;
+    border-radius: var(--ab-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem 1.6rem;
+    grid-template-columns: repeat(5, 1fr); /* K = 5 columns */
+    gap: 1.5rem;
+  }
+
+  .mega-panel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -0.8rem;
+    height: 0.8rem;
+  }
+
+  .has-mega:hover .mega-panel,
+  .has-mega:focus-within .mega-panel {
+    display: grid;
+  }
+
+  .mega-col h3 {
+    font: 500 0.8rem var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 0 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid var(--accent);
+  }
+  .mega-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .mega-col a {
+    display: block;
+    padding: 0.25rem 0;
+    text-decoration: none;
+    font-size: 0.88rem;
+  }
+  .mega-col a:hover,
+  .mega-col a:focus-visible {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+}
